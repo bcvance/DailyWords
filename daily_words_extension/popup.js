@@ -14,6 +14,7 @@ activatedBtn.onclick = () => {
     if (activatedBtn.innerHTML === 'activate') {
         chrome.storage.sync.set({'activated': true});
         activatedBtn.innerHTML = 'deactivate';
+        activatedBtn.color = 'red';
 
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {type: 'activation'});
@@ -23,6 +24,7 @@ activatedBtn.onclick = () => {
     else {
         chrome.storage.sync.set({'activated': false});
         activatedBtn.innerHTML = 'activate';
+        activatedBtn.color = 'green';
 
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {type: 'activation'});

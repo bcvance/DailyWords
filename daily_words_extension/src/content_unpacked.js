@@ -1,9 +1,8 @@
 import tippy, { hideAll } from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 
-
-const authKey = process.env.DEEPL_AUTH_KEY
 let toolTipActive = false;
+let serverhost = 'http://127.0.0.1:8000';
 
 // top level function controlling the isolation of word in body text and creation of tooltip
 function tooltipResponse(event) {
@@ -23,67 +22,9 @@ function tooltipResponse(event) {
 }
 // create tooltip, fetch translation from API, create event listeners for saving and deleting words
 function createToolTip(word) {
-    fetch(`https://api-free.deepl.com/v2/translate?auth_key=${authKey}&text=${word}&target_lang=EN-US`, {
-            method: 'POST'
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            // once translation data has been received, create tooltip on word
-            const el = document.getElementById(`${word}-node`);
-            const instance = tippy(el, {
-                content: 
-                `<div>
-                    <strong>${word} - </strong>
-                    <p style='margin: 5px 0;'>${data.translations[0].text}</p>
-                    <strong id='save-btn' style='text-decoration: underline; cursor: pointer;'>Save This Word</strong> 
-                </div>
-                `
-                ,
-                allowHTML: true,
-                trigger: 'click',
-                hideOnClick: true,
-                interactive: true,
-                showOnCreate: true,
-                // when tippy is showing, clicking anywhere simply minimizes the tippy,
-                // and does not try to evaluate next thing clicked
-                // onShow(instance) {
-                //     console.log('onSHow');
-                //     $("body").off('click');
-                // },
-                // when tippy is minimized, we reactivate wordFinder event listener so that
-                // we can continue to translate new terms
-                // onHidden(instance) {
-                //     console.log("onHidden");
-                //     hideAll();
-                //     $("body").on('click', (event) => {
-                //         wordFinder(event);
-                //     });
-                // }
-            });
-            // highlight word to indicate it has been clicked
-            el.style.backgroundColor = '#00ffd9';
-
-            // add event listeners to save button
-            document.getElementById('save-btn').onclick = (event) => {
-                // here we will save word - translation pair to storage
-                console.log(word);
-                if (event.target.innerHTML === 'Save This Word') {
-                    // send message to background.js to initiate call to backend API to save word
-                    chrome.runtime.sendMessage({word: word, translation: data.translations[0].text, type: 'save'}, function(response) {
-                      });
-                    event.target.innerHTML = 'Unsave Word';
-                }
-    
-                else {
-                    // send message to background.js to initiate call to backend API to delete word
-                    chrome.runtime.sendMessage({word: word, type: 'delete'}, function(response) {
-                      });
-                    event.target.innerHTML = 'Save This Word';
-                }
-                
-            }
-        })
+    chrome.runtime.sendMessage({word: word, type: 'translate'})
 }
+
 
 function wrapWord(word,selection,range) {
     console.log(word);
@@ -154,8 +95,60 @@ chrome.runtime.onMessage.addListener(
                 }
             });
         }
-    // I think this set is redundant since I set "activated" in popup.js
-      
+      else if (request.type === 'translation_res'){
+        const el = document.getElementById(`${request.word}-node`);
+        const instance = tippy(el, {
+            content: 
+            `<div>
+                <strong>${request.word} - </strong>
+                <p style='margin: 5px 0;'>${request.translation}</p>
+                <strong id='save-btn' style='text-decoration: underline; cursor: pointer;'>Save This Word</strong> 
+            </div>
+            `
+            ,
+            allowHTML: true,
+            trigger: 'click',
+            hideOnClick: true,
+            interactive: true,
+            showOnCreate: true,
+            // when tippy is showing, clicking anywhere simply minimizes the tippy,
+            // and does not try to evaluate next thing clicked
+            // onShow(instance) {
+            //     console.log('onSHow');
+            //     $("body").off('click');
+            // },
+            // when tippy is minimized, we reactivate wordFinder event listener so that
+            // we can continue to translate new terms
+            // onHidden(instance) {
+            //     console.log("onHidden");
+            //     hideAll();
+            //     $("body").on('click', (event) => {
+            //         wordFinder(event);
+            //     });
+            // }
+        });
+        // highlight word to indicate it has been clicked
+        el.style.backgroundColor = '#00ffd9';
+
+        // add event listeners to save button
+        document.getElementById('save-btn').onclick = (event) => {
+            // here we will save word - translation pair to storage
+            console.log(request.word);
+            if (event.target.innerHTML === 'Save This Word') {
+                // send message to background.js to initiate call to backend API to save word
+                chrome.runtime.sendMessage({word: request.word, translation: request.translation, type: 'save'}, function(response) {
+                });
+                event.target.innerHTML = 'Unsave Word';
+            }
+
+            else {
+                // send message to background.js to initiate call to backend API to delete word
+                chrome.runtime.sendMessage({word: request.word, type: 'delete'}, function(response) {
+                });
+                event.target.innerHTML = 'Save This Word';
+            }   
+        }
+    }
     }
   );
 

@@ -8,6 +8,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
 import os
+import requests
+import deepl
 
 # Create your views here.
 
@@ -45,23 +47,19 @@ def save_word(request):
     Word.objects.create(original=word, translation=translation, user=User.objects.get(google_id=google_id))
     return HttpResponse(status=204)
 
-# sends words to user's phone
-# @csrf_exempt
-# @api_view(('POST',))
-# @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
-# def send(request):
-#     last_five = Word.objects.all().order_by('-id')[:5]
-#     body_list = [f'{entry.original}: {entry.translation}\n' for entry in last_five]
-#     body_string = ''.join(body_list)
-#     # print(body_string)
-#     message = client.messages.create(
-#             body=body_string,
-#             from_='+18106311913',
-#             to='+18157939677'
-#         )
-
-#     # print(message.sid)
-#     return HttpResponse(status=204)
+@csrf_exempt
+@api_view(('POST',))
+def translate(request):
+    print("translate called")
+    print(request)
+    word = json.loads(request.body)['word']
+    print(word)
+    try:
+        translator
+    except UnboundLocalError:
+        translator = deepl.Translator(os.environ['DEEPL_AUTH_KEY'])
+    res = translator.translate_text(word, target_lang='EN-US')
+    return JsonResponse({'word':word, 'translation':str(res)})
 
 
 # save updated user settings to database

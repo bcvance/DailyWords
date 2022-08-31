@@ -115,6 +115,21 @@ chrome.runtime.onMessage.addListener(
                     return true
             })
         }
+        else if (request.type === 'translate') {
+            console.log('translate')
+            let url = serverhost + '/translate'
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({word: request.word})
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+                chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                    chrome.tabs.sendMessage(tabs[0].id, {type:'translation_res', word:data['word'],translation:data['translation']})
+                })
+            })
+        }
     }
 )
 
