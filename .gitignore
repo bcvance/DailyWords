@@ -1,0 +1,8 @@
+.DS_Store
+db.sqlite
+.venv/
+*.pyc
+.env
+db.sqlite3
+
+
