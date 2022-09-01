@@ -1,7 +1,7 @@
 # Daily Words
 
 Daily Words is a chrome extension designed to make learning vocabulary as fun and convenient as possible. Source your own learning material and have translations 
-sent to your phone every single day.
+sent to your phone or email every single day.
 
 ### Here's How it works:
 
