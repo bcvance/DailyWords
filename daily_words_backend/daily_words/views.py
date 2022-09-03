@@ -68,12 +68,13 @@ def translate(request):
 @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
 def update(request):
     data = json.loads(request.body)
-    print(data)
     user_info = data['userInfo']
     google_id = user_info['sub']
     user_email = user_info['email']
+    # save user to database if they are first time user
     if not User.objects.filter(google_id=google_id):
         new_user = User.objects.create(google_id=google_id, user_email=user_email, send_to_phone=data['sendToPhone'], send_to_email=data['sendToEmail'], phone_number=data['phoneNumber'], num_words=data['numWords'])
+        # add element to foreign key field (times of day that user wishes to receive words)
         new_user.send_times.add(SendTime.objects.get(hour=data['hour']))
     user = User.objects.get(google_id=user_info['sub'])
     user.send_to_phone = data['sendToPhone']

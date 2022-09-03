@@ -17,7 +17,9 @@ def send_daily_words_task():
     hour = datetime.now().hour
     # send texts to all users that want translations by text
     for user in users:
-        if user.send_to_phone and user.send_times == hour:
+        # get users that want to be sent words at this time (users for whom the current hour is one of their send_times)
+        # think about indexing here to make this search faster
+        if user.send_to_phone and hour in [time.hour for time in user.send_times.all()]:
             body_list = []
             # get n oldest words, with n being specified by user in options
             entries = Word.objects.filter(user=user).order_by('saved_date')[:user.num_words]
