@@ -10,11 +10,24 @@ phoneInput.onclick = () => {
 }
 
 function saveOptions() {
+    let hour = document.getElementById('time').value;
+    let amPm = document.getElementById('am-pm').value;
+    if (hour !== '12') {
+        if (amPm === 'pm') {
+            hour = (Number(hour) + 12).toString();
+        }
+    }
+    else {
+        if (amPm === 'am') {
+            hour = '0';
+        }
+    }
     chrome.storage.sync.set({
         sendToPhone: phoneInput.checked,
         sendToEmail: document.getElementById('email').checked,
         phoneNumber: document.getElementById('number').value,
-        numWords: document.getElementById('num-words').value
+        numWords: document.getElementById('num-words').value,
+        hour: hour
     }, function() {
         // tell background.js to save new settings to database
         chrome.runtime.sendMessage({type: 'saveOptions'})
