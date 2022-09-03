@@ -92,7 +92,7 @@ chrome.runtime.onMessage.addListener(
                 sendToEmail: false,
                 phoneNumber: '',
                 numWords: 5,
-                hour: '4'
+                hour: 4
             }, function(items) {
                     console.log('function executed');
                     let url = serverhost + '/api/update';
