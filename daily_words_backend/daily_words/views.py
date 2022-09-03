@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import json
 from django.http import JsonResponse, HttpResponse
-from .models import Word, User
+from .models import Word, User, SendTime
 from rest_framework import status
 from rest_framework.response import Response
 from django.views.decorators.csrf import csrf_exempt
@@ -68,11 +68,18 @@ def translate(request):
 @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
 def update(request):
     data = json.loads(request.body)
+    print(data)
     user_info = data['userInfo']
+    google_id = user_info['sub']
+    user_email = user_info['email']
+    if not User.objects.filter(google_id=google_id):
+        new_user = User.objects.create(google_id=google_id, user_email=user_email, send_to_phone=data['sendToPhone'], send_to_email=data['sendToEmail'], phone_number=data['phoneNumber'], num_words=data['numWords'])
+        new_user.send_times.add(SendTime.objects.get(hour=data['hour']))
     user = User.objects.get(google_id=user_info['sub'])
     user.send_to_phone = data['sendToPhone']
     user.send_to_email = data['sendToEmail']
     user.phone_number = data['phoneNumber']
     user.num_words = data['numWords']
+    user.send_times.add(SendTime.objects.get(hour=data['hour']))
     user.save()
     return JsonResponse({'message':'successfully updated user settings'},status=204)

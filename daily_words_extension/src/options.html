@@ -11,6 +11,11 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
+        <style>
+            #time:invalid {
+                outline: 2px solid red;
+            }
+        </style>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -21,6 +26,12 @@
             <legend>Send my words to my: </legend>
             <input type="checkbox" name="phone" id="phone" value="phone">Phone<br>
             <input type="checkbox" name="email" id="email" value="email">Email<br>
+            <label for="time">Send me my words at:</label>
+            <input type="text", id="time" name="time" required pattern="\d+">
+            <select name="am-pm" id="am-pm">
+                <option value="am">AM</option>
+                <option value="pm">PM</option>
+            </select>
             <div id="numberfield" style="display: none;">
                 <label for="number">My Phone Number Is: </label><br>
                 <input type="text" name="number" id="number">

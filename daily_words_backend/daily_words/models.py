@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class User(models.Model):
@@ -8,15 +9,20 @@ class User(models.Model):
     send_to_email = models.BooleanField(default=False)
     phone_number = models.CharField(max_length=15, default='')
     num_words = models.IntegerField(default=5)
+    send_times = models.ManyToManyField('SendTime')
 
 class Word(models.Model):
     original = models.CharField(max_length=40)
     translation = models.CharField(max_length=40)
-    user = models.ForeignKey(User, on_delete = models.CASCADE, related_name = "words", null=True)
+    user = models.ForeignKey('User', on_delete = models.CASCADE, related_name = "words", null=True)
     saved_date = models.DateField(auto_now=True)
 
     class Meta:
         unique_together = ('original', 'user')
+
+class SendTime(models.Model):
+    hour = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(23)])
+
 
 
 # Create your models here.

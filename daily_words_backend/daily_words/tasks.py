@@ -3,6 +3,7 @@ from time import sleep
 from .models import Word, User
 from twilio.rest import Client
 from celery import shared_task
+from datetime import datetime
 
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
@@ -13,9 +14,10 @@ client = Client(account_sid, auth_token)
 def send_daily_words_task():
     print('send_daily_words executed')
     users = User.objects.all()
+    hour = datetime.now().hour
     # send texts to all users that want translations by text
     for user in users:
-        if user.send_to_phone:
+        if user.send_to_phone and user.send_times == hour:
             body_list = []
             # get n oldest words, with n being specified by user in options
             entries = Word.objects.filter(user=user).order_by('saved_date')[:user.num_words]
