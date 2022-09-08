@@ -27,11 +27,16 @@
             <input type="checkbox" name="phone" id="phone" value="phone">Phone<br>
             <input type="checkbox" name="email" id="email" value="email">Email<br>
             <label for="time">Send me my words at:</label>
-            <input type="text", id="time" name="time" required pattern="\d+">
-            <select name="am-pm" id="am-pm">
-                <option value="am">AM</option>
-                <option value="pm">PM</option>
-            </select>
+            <div id="time-component">
+                <div class="time-field" style="display: flex; align-items:center;">
+                    <input type="text", class="time" name="time" required pattern="\d+">
+                    <select class="am-pm" name="am-pm">
+                        <option value="am">AM</option>
+                        <option value="pm">PM</option>
+                    </select>
+                </div>
+            </div>
+            <p id="add-time" style="font-weight: bold; text-decoration: underline;">Add another time</p>
             <div id="numberfield" style="display: none;">
                 <label for="number">My Phone Number Is: </label><br>
                 <input type="text" name="number" id="number">
