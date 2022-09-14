@@ -15,13 +15,16 @@ class Word(models.Model):
     original = models.CharField(max_length=40)
     translation = models.CharField(max_length=40)
     user = models.ForeignKey('User', on_delete = models.CASCADE, related_name = "words", null=True)
-    saved_date = models.DateField(auto_now=True)
+    saved_date = models.DateTimeField(auto_now=True)
 
     class Meta:
         unique_together = ('original', 'user')
 
 class SendTime(models.Model):
     hour = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(23)])
+
+    def __str__(self) -> str:
+        return str(self.hour)
 
 
 

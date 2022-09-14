@@ -233,3 +233,383 @@
 [2022-08-25 19:57:42,227: INFO/ForkPoolWorker-1] Response Status Code: 201
 [2022-08-25 19:57:42,228: INFO/ForkPoolWorker-1] Response Headers: {'Date': 'Thu, 25 Aug 2022 19:57:42 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '1149', 'Connection': 'keep-alive', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ9c702a4462b507be07835f4ed987413a', 'Twilio-Request-Duration': '0.208', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag', 'Access-Control-Allow-Credentials': 'true', 'X-Powered-By': 'AT-5000', 'X-Shenanigans': 'none', 'X-Home-Region': 'us1', 'X-API-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000'}
 [2022-08-25 19:57:42,230: INFO/ForkPoolWorker-1] Task send_daily_words_task[4ce0d1ab-3ad9-4e42-8ff8-f1c7f722f193] succeeded in 0.2873869330000005s: None
+[2022-09-09 18:01:14,791: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-09-09 18:01:14,798: INFO/MainProcess] mingle: searching for neighbors
+[2022-09-09 18:01:15,815: INFO/MainProcess] mingle: all alone
+[2022-09-09 18:01:15,846: WARNING/MainProcess] /Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-09-09 18:01:15,846: INFO/MainProcess] celery@Bens-MacBook-Air.local ready.
+[2022-09-09 18:01:15,851: INFO/MainProcess] Task send_daily_words_test[96e82b70-2751-4eea-8b5b-0c0217f46391] received
+[2022-09-09 18:01:15,854: WARNING/ForkPoolWorker-1] send_daily_words executed
+[2022-09-09 18:01:15,895: ERROR/ForkPoolWorker-1] Task send_daily_words_test[96e82b70-2751-4eea-8b5b-0c0217f46391] raised unexpected: ValueError("invalid literal for int() with base 10: b'09 17:43:42.366047'")
+Traceback (most recent call last):
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/daily_words/tasks.py", line 46, in send_daily_words_test
+    for entry in entries:
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 1866, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1395, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/sqlite3/dbapi2.py", line 64, in convert_date
+    return datetime.date(*map(int, val.split(b"-")))
+ValueError: invalid literal for int() with base 10: b'09 17:43:42.366047'
+[2022-09-09 18:01:18,136: INFO/MainProcess] Task send_daily_words_test[c6d281cd-a35d-4354-925c-b580b1019795] received
+[2022-09-09 18:01:18,137: WARNING/ForkPoolWorker-1] send_daily_words executed
+[2022-09-09 18:01:18,148: ERROR/ForkPoolWorker-1] Task send_daily_words_test[c6d281cd-a35d-4354-925c-b580b1019795] raised unexpected: ValueError("invalid literal for int() with base 10: b'09 17:43:42.366047'")
+Traceback (most recent call last):
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/daily_words/tasks.py", line 46, in send_daily_words_test
+    for entry in entries:
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 1866, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1395, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/sqlite3/dbapi2.py", line 64, in convert_date
+    return datetime.date(*map(int, val.split(b"-")))
+ValueError: invalid literal for int() with base 10: b'09 17:43:42.366047'
+[2022-09-09 18:01:23,136: INFO/MainProcess] Task send_daily_words_test[79fcc826-5358-44e7-a10e-04a4068e1cef] received
+[2022-09-09 18:01:23,138: WARNING/ForkPoolWorker-1] send_daily_words executed
+[2022-09-09 18:01:23,142: ERROR/ForkPoolWorker-1] Task send_daily_words_test[79fcc826-5358-44e7-a10e-04a4068e1cef] raised unexpected: ValueError("invalid literal for int() with base 10: b'09 17:43:42.366047'")
+Traceback (most recent call last):
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/daily_words/tasks.py", line 46, in send_daily_words_test
+    for entry in entries:
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 1866, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1395, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/sqlite3/dbapi2.py", line 64, in convert_date
+    return datetime.date(*map(int, val.split(b"-")))
+ValueError: invalid literal for int() with base 10: b'09 17:43:42.366047'
+[2022-09-09 18:01:28,135: INFO/MainProcess] Task send_daily_words_test[9247490f-1975-44ea-925d-58cf7b039c7e] received
+[2022-09-09 18:01:28,136: WARNING/ForkPoolWorker-1] send_daily_words executed
+[2022-09-09 18:01:28,141: ERROR/ForkPoolWorker-1] Task send_daily_words_test[9247490f-1975-44ea-925d-58cf7b039c7e] raised unexpected: ValueError("invalid literal for int() with base 10: b'09 17:43:42.366047'")
+Traceback (most recent call last):
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/daily_words/tasks.py", line 46, in send_daily_words_test
+    for entry in entries:
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 1866, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1395, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/sqlite3/dbapi2.py", line 64, in convert_date
+    return datetime.date(*map(int, val.split(b"-")))
+ValueError: invalid literal for int() with base 10: b'09 17:43:42.366047'
+[2022-09-09 18:01:33,136: INFO/MainProcess] Task send_daily_words_test[83dd494f-eeaa-4f97-914a-aa6d83b4853b] received
+[2022-09-09 18:01:33,137: WARNING/ForkPoolWorker-1] send_daily_words executed
+[2022-09-09 18:01:33,141: ERROR/ForkPoolWorker-1] Task send_daily_words_test[83dd494f-eeaa-4f97-914a-aa6d83b4853b] raised unexpected: ValueError("invalid literal for int() with base 10: b'09 17:43:42.366047'")
+Traceback (most recent call last):
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/daily_words/tasks.py", line 46, in send_daily_words_test
+    for entry in entries:
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 1866, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1395, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/sqlite3/dbapi2.py", line 64, in convert_date
+    return datetime.date(*map(int, val.split(b"-")))
+ValueError: invalid literal for int() with base 10: b'09 17:43:42.366047'
+[2022-09-09 18:01:38,135: INFO/MainProcess] Task send_daily_words_test[670232c7-cb02-45d1-9b61-543eb72468de] received
+[2022-09-09 18:01:38,136: WARNING/ForkPoolWorker-1] send_daily_words executed
+[2022-09-09 18:01:38,140: ERROR/ForkPoolWorker-1] Task send_daily_words_test[670232c7-cb02-45d1-9b61-543eb72468de] raised unexpected: ValueError("invalid literal for int() with base 10: b'09 17:43:42.366047'")
+Traceback (most recent call last):
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/daily_words/tasks.py", line 46, in send_daily_words_test
+    for entry in entries:
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 1866, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1395, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/sqlite3/dbapi2.py", line 64, in convert_date
+    return datetime.date(*map(int, val.split(b"-")))
+ValueError: invalid literal for int() with base 10: b'09 17:43:42.366047'
+[2022-09-09 18:01:43,136: INFO/MainProcess] Task send_daily_words_test[84a1eb1c-e42b-4635-a292-188cc58b4611] received
+[2022-09-09 18:01:43,137: WARNING/ForkPoolWorker-1] send_daily_words executed
+[2022-09-09 18:01:43,141: ERROR/ForkPoolWorker-1] Task send_daily_words_test[84a1eb1c-e42b-4635-a292-188cc58b4611] raised unexpected: ValueError("invalid literal for int() with base 10: b'09 17:43:42.366047'")
+Traceback (most recent call last):
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/daily_words/tasks.py", line 46, in send_daily_words_test
+    for entry in entries:
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 1866, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1395, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/sqlite3/dbapi2.py", line 64, in convert_date
+    return datetime.date(*map(int, val.split(b"-")))
+ValueError: invalid literal for int() with base 10: b'09 17:43:42.366047'
+[2022-09-09 18:01:48,135: INFO/MainProcess] Task send_daily_words_test[e974eb44-8edd-4041-a82e-7a5ba19f9920] received
+[2022-09-09 18:01:48,136: WARNING/ForkPoolWorker-1] send_daily_words executed
+[2022-09-09 18:01:48,140: ERROR/ForkPoolWorker-1] Task send_daily_words_test[e974eb44-8edd-4041-a82e-7a5ba19f9920] raised unexpected: ValueError("invalid literal for int() with base 10: b'09 17:43:42.366047'")
+Traceback (most recent call last):
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/daily_words/tasks.py", line 46, in send_daily_words_test
+    for entry in entries:
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 1866, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1395, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/sqlite3/dbapi2.py", line 64, in convert_date
+    return datetime.date(*map(int, val.split(b"-")))
+ValueError: invalid literal for int() with base 10: b'09 17:43:42.366047'
+[2022-09-09 18:01:53,136: INFO/MainProcess] Task send_daily_words_test[a0fb5e3c-7363-4800-8749-04b7342e5059] received
+[2022-09-09 18:01:53,138: WARNING/ForkPoolWorker-1] send_daily_words executed
+[2022-09-09 18:01:53,142: ERROR/ForkPoolWorker-1] Task send_daily_words_test[a0fb5e3c-7363-4800-8749-04b7342e5059] raised unexpected: ValueError("invalid literal for int() with base 10: b'09 17:43:42.366047'")
+Traceback (most recent call last):
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/daily_words/tasks.py", line 46, in send_daily_words_test
+    for entry in entries:
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 1866, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1395, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/sqlite3/dbapi2.py", line 64, in convert_date
+    return datetime.date(*map(int, val.split(b"-")))
+ValueError: invalid literal for int() with base 10: b'09 17:43:42.366047'
+[2022-09-09 18:01:58,139: INFO/MainProcess] Task send_daily_words_test[b8a347de-1122-41f2-96e9-6b7121111ec1] received
+[2022-09-09 18:01:58,141: WARNING/ForkPoolWorker-1] send_daily_words executed
+[2022-09-09 18:01:58,148: ERROR/ForkPoolWorker-1] Task send_daily_words_test[b8a347de-1122-41f2-96e9-6b7121111ec1] raised unexpected: ValueError("invalid literal for int() with base 10: b'09 17:43:42.366047'")
+Traceback (most recent call last):
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/daily_words/tasks.py", line 46, in send_daily_words_test
+    for entry in entries:
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 1866, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1395, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/sqlite3/dbapi2.py", line 64, in convert_date
+    return datetime.date(*map(int, val.split(b"-")))
+ValueError: invalid literal for int() with base 10: b'09 17:43:42.366047'
+[2022-09-09 18:02:03,139: INFO/MainProcess] Task send_daily_words_test[d6d175d8-485e-4c93-83a6-1c463ba38fb0] received
+[2022-09-09 18:02:03,141: WARNING/ForkPoolWorker-1] send_daily_words executed
+[2022-09-09 18:02:03,146: ERROR/ForkPoolWorker-1] Task send_daily_words_test[d6d175d8-485e-4c93-83a6-1c463ba38fb0] raised unexpected: ValueError("invalid literal for int() with base 10: b'09 17:43:42.366047'")
+Traceback (most recent call last):
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/daily_words/tasks.py", line 46, in send_daily_words_test
+    for entry in entries:
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 1866, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1395, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/sqlite3/dbapi2.py", line 64, in convert_date
+    return datetime.date(*map(int, val.split(b"-")))
+ValueError: invalid literal for int() with base 10: b'09 17:43:42.366047'
+[2022-09-09 18:02:08,136: INFO/MainProcess] Task send_daily_words_test[fea34dec-cf74-454c-9736-813c81ad379f] received
+[2022-09-09 18:02:08,137: WARNING/ForkPoolWorker-1] send_daily_words executed
+[2022-09-09 18:02:08,142: ERROR/ForkPoolWorker-1] Task send_daily_words_test[fea34dec-cf74-454c-9736-813c81ad379f] raised unexpected: ValueError("invalid literal for int() with base 10: b'09 17:43:42.366047'")
+Traceback (most recent call last):
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/daily_words/tasks.py", line 46, in send_daily_words_test
+    for entry in entries:
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 1866, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1395, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/b.vance/Coding Projects/daily_words_project/daily_words_backend/.venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/sqlite3/dbapi2.py", line 64, in convert_date
+    return datetime.date(*map(int, val.split(b"-")))
+ValueError: invalid literal for int() with base 10: b'09 17:43:42.366047'

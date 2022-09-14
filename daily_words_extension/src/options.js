@@ -40,31 +40,45 @@ document.getElementById('add-time').onclick = () => {
 function saveOptions() {
     let hours = document.getElementsByClassName('time');
     let amPms = document.getElementsByClassName('am-pm');
-    let timeVals;
+    let timeVals = [];
     let hour;
     let amPm;
     for (let i=0; i<hours.length; i++) {
-        hour = hours[i]
-        amPm = amPms[i]
+        hour = hours[i].value;
+        amPm = amPms[i].value;
         if (hour !== '12') {
             if (amPm === 'pm') {
-                hour = (Number(hour) + 12).toString();
+                hour = (Number(hour) + 12)
+            }
+            else {
+                hour = Number(hour);
             }
         }
         else {
             if (amPm === 'am') {
-                hour = '0';
+                hour = 0;
             }
+        }
+
+        // adjust time input to UTC
+        const localDateTime = new Date();
+        const timeZoneOffset = Math.floor(localDateTime.getTimezoneOffset() / 60);
+        hour -= timeZoneOffset
+        if (hour < 0) {
+            hour += 24;
+        }
+        else if (hour > 23) {
+            hour -= 24
         }
         timeVals.push(hour);
     }
-
+    console.log(timeVals);
     chrome.storage.sync.set({
         sendToPhone: phoneInput.checked,
         sendToEmail: document.getElementById('email').checked,
         phoneNumber: document.getElementById('number').value,
         numWords: document.getElementById('num-words').value,
-        hour: hour
+        timeVals: timeVals
     }, function() {
         // tell background.js to save new settings to database (can't make API call from options.js due to CORS)
         chrome.runtime.sendMessage({type: 'saveOptions'})
