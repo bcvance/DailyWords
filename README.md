@@ -25,6 +25,7 @@ This option would enable users to provide feedback regarding ease of recall for 
 3) Activate the extension by clicking the extension icon in the top right of your browser, clicking on "Daily Words" and then "activate".  
 ![alt text](https://github.com/bcvance/DailyWords/blob/development/media/activate.gif)
 
-4) Click on a word or highlight an entire phrase to get a translation. Translations are done using the DeepL API. 
-5) To save your translation, click "Save This Word" to save it to the database.
-6) When you are done reading, repeat step 3 to deactivate the extension.
+4) Click on a word or highlight an entire phrase to get a translation. Translations are done using the DeepL API.  
+5) ![alt text](https://github.com/bcvance/DailyWords/blob/development/media/translate_demonstration.gif)
+6) To save your translation, click "Save This Word" to save it to the database.
+7) When you are done reading, repeat step 3 to deactivate the extension.
