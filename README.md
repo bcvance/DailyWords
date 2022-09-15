@@ -16,10 +16,6 @@ be sent to your phone, please include your phone number in the input box that wi
 <br/><br/>
 ![alt text](https://github.com/bcvance/DailyWords/blob/development/media/daily_words_authentication.png)
 
-#### In the Works
-Currently words are sent based on a FIFO (first in first out) queue pattern. That is, the least recently seen words will be sent to your phone or email before
-more recent ones. Upon receiving a translation, it gets cycled back to the end of the queue. Currently, a spaced repetition option is in development as well. 
-This option would enable users to provide feedback regarding ease of recall for each translation, which would alter the wait time before next review of that word accordingly.
 
 ### Using the extension:
 1) Install the extension from the Chrome Web Store (extension not yet published)
@@ -40,3 +36,11 @@ Words will be sent in the below format to the number provided in your extension 
 In the video below for demonstration purposes the Celery Beat has been altered to send words every 3 seconds.
 <br/><br/>
 <img src="https://github.com/bcvance/DailyWords/blob/development/media/texts_resized.gif" alt="drawing" width="310"/>
+
+### In the Works
+ - Currently words are sent based on a FIFO (first in first out) queue pattern. That is, the least recently seen words will be sent to your phone or email before
+more recent ones. Upon receiving a translation, it gets cycled back to the end of the queue. Currently, a spaced repetition option is in development as well. 
+This option would enable users to provide feedback regarding ease of recall for each translation, which would alter the wait time before next review of that word accordingly.  
+- Support for additional languages 
+
+
