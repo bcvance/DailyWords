@@ -22,6 +22,7 @@ document.getElementById('add-time').onclick = () => {
     // get and clone existing time field
     const timeField = document.getElementsByClassName('time-field')[0];
     const newElement = timeField.cloneNode(true);
+    console.log(newElement.childNodes[1].value = '');
     // for all additional time fields, add a close button to delete the field if needed
     let exitBtn = document.createElement('template');
     exitBtn.innerHTML = exitBtnHTML.trim()
