@@ -15,8 +15,10 @@ sent to your phone or email every single day.
 
 1) Click on the extension icon in the top right of your browser, then click the three dots next to Daily Words, and then select "options".
 2) When a menu pops up, select where you would like to receive your translations daily. You may choose email, phone, or both. If you would like words to
-be sent to your phone, please include your phone number in the input box that will appear upon selecting "phone". You may also indicate how many translations
-you would like to be sent per day.
+be sent to your phone, please include your phone number in the input box that will appear upon selecting "phone". You may also indicate how many translations you would like to be sent per day.
+![alt text](https://github.com/bcvance/DailyWords/blob/development/media/options.gif)
+
+
 3) Click save, sign into Google Account for authorization if necessary, and you're done! 
 
 #### In the Works
