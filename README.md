@@ -19,7 +19,8 @@ be sent to your phone, please include your phone number in the input box that wi
 ![alt text](https://github.com/bcvance/DailyWords/blob/development/media/options.gif)
 
 
-3) Click save, sign into Google Account for authorization if necessary, and you're done! 
+3) Google may ask for authentication as shown below. This is necessary for the extension to have access to your email address and identify the account being used.  
+![alt text](https://github.com/bcvance/DailyWords/blob/development/media/daily_words_authentication.png)
 
 #### In the Works
 Currently words are sent based on a FIFO (first in first out) queue pattern. That is, the least recently seen words will be sent to your phone or email before
