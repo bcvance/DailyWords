@@ -3,7 +3,7 @@
 Daily Words is a chrome extension designed to make learning vocabulary as fun and convenient as possible. Source your own learning material and have translations 
 sent to your phone or email every single day.
 
-### Configuring your settings
+## Configuring your settings
 
 1) Click on the extension icon in the top right of your browser, then click the three dots next to Daily Words, and then select "options".
 2) When a menu pops up, select where you would like to receive your translations daily. You may choose email, phone, or both. If you would like words to
@@ -17,7 +17,7 @@ be sent to your phone, please include your phone number in the input box that wi
 ![alt text](https://github.com/bcvance/DailyWords/blob/development/media/daily_words_authentication.png)
 
 
-### Using the extension:
+## Using the extension:
 1) Install the extension from the Chrome Web Store (extension not yet published)
 2) Navigate to article in foreign language of your choosing.
 3) Activate the extension by clicking the extension icon in the top right of your browser, clicking on "Daily Words" and then "activate".
@@ -37,7 +37,7 @@ In the video below for demonstration purposes the Celery Beat has been altered t
 <br/><br/>
 <img src="https://github.com/bcvance/DailyWords/blob/development/media/texts_resized.gif" alt="drawing" width="310"/>
 
-### In the Works
+## In the Works:
  - Currently words are sent based on a FIFO (first in first out) queue pattern. That is, the least recently seen words will be sent to your phone or email before
 more recent ones. Upon receiving a translation, it gets cycled back to the end of the queue. Currently, a spaced repetition option is in development as well. 
 This option would enable users to provide feedback regarding ease of recall for each translation, which would alter the wait time before next review of that word accordingly.  
