@@ -32,5 +32,6 @@ This option would enable users to provide feedback regarding ease of recall for 
 
 
 ## Receiving words
-Words will be sent directly to the number provided in your extension options at the indicated time/s.  
-![alt text](https://github.com/bcvance/DailyWords/blob/development/media/texts_resized.gif)
+Words will be sent in the below format to the number provided in your extension options. 
+In the video below for demonstration purposes the Celery Beat has been altered to send words every 3 seconds.
+<img src="https://github.com/bcvance/DailyWords/blob/development/media/texts_resized.gif" alt="drawing" width="200"/>
