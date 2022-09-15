@@ -35,7 +35,7 @@ This option would enable users to provide feedback regarding ease of recall for 
 6) When you are done reading, repeat step 3 to deactivate the extension.
 
 
-## Receiving words
+## Receiving words:
 Words will be sent in the below format to the number provided in your extension options. 
 In the video below for demonstration purposes the Celery Beat has been altered to send words every 3 seconds.
 <br/><br/>
