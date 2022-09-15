@@ -29,3 +29,8 @@ This option would enable users to provide feedback regarding ease of recall for 
 5) To save your translation, click "Save This Word" to save it to the database.  
 ![alt text](https://github.com/bcvance/DailyWords/blob/development/media/translate_demonstration.gif)
 6) When you are done reading, repeat step 3 to deactivate the extension.
+
+
+## Receiving words
+Words will be sent directly to the number provided in your extension options at the indicated time/s.  
+![alt text](https://github.com/bcvance/DailyWords/blob/development/media/daily_words_texts.gif)
